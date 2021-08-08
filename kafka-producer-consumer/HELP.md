@@ -25,5 +25,7 @@ Zookeeper is mainly used to track status of nodes present in Kafka cluster and a
 6. show List of topic : 		
 G:\Tool\kafka\kafka_2.13-2.8.0\bin\windows\kafka-topics.bat --list --zookeeper localhost:2181
 
+7. Call from browser : http://localhost:8080/kafka/producer?message=Lionel%20Messi
+
 
 
