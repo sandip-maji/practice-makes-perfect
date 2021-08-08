@@ -1,5 +1,7 @@
+.classpath
 *mvn*
 .project
+*target*
 
 # Compiled class file
 *.class
