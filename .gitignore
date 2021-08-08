@@ -1,6 +1,9 @@
 *mvn*
 .project
 
+*.settings*
+*target*
+
 # Compiled class file
 *.class
 
