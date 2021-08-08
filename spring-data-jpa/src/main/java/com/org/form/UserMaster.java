@@ -9,8 +9,12 @@ public class UserMaster {
 	private String address;
 	private int pin;
 
-	public UserMaster(long id, String name, int age, String email, String address, int pin) {
+	public UserMaster() {
 		super();
+	}
+	
+	public UserMaster(long id, String name, int age, String email, String address, int pin) {
+		//super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
