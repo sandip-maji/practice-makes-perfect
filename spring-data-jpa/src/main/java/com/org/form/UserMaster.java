@@ -1,41 +1,16 @@
-package com.org.entity;
+package com.org.form;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name = "usermaster")
 public class UserMaster {
 
-	@Id
-	@GeneratedValue
 	private long id;
-	@Column(nullable = false, length = 100)
 	private String name;
-	@Column(name = "age")
 	private int age;
-	@Column(name = "email")
 	private String email;
-	@Column(name = "address")
 	private String address;
-	@Column(name = "pin")
 	private int pin;
 
-	/*
-	 * Hibernate uses the default constructor to create entity objects. If the
-	 * default constructor is not available in any of the entities,
-	 * InstantiationException: There was an unexpected error (type=Internal Server
-	 * Error, status=500). will be thrown from hibernate
-	 */
-	public UserMaster() {
-		super();
-	}
-
 	public UserMaster(long id, String name, int age, String email, String address, int pin) {
-		// super();
+		super();
 		this.id = id;
 		this.name = name;
 		this.age = age;
