@@ -27,9 +27,9 @@ public class CommonServiceTest {
 		
 		String str = spy.getServiceDetails();
 		
-		//String  result = commonService.getServiceDetails();
+		String  result = commonService.getServiceDetails();
 		
-		assertNotNull(str);
+		assertNotNull(result);
 		
 	}
 	
