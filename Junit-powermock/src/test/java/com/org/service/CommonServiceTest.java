@@ -1,5 +1,6 @@
 package com.org.service;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.junit.Test;
@@ -8,30 +9,38 @@ import org.mockito.InjectMocks;
 import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
-import org.springframework.test.util.ReflectionTestUtils;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({CommonService.class})
+@PrepareForTest({ CommonService.class })
 public class CommonServiceTest {
-	
+
 	@InjectMocks
 	CommonService commonService;
-	
+
 	@Test
-	public void getServiceDetailsTest() throws Exception {
+	public void testGetServiceDetails() throws Exception {
+		String mockedPrivateResponse = "This is mocked response";
+		CommonService commonServiceSpy = PowerMockito.spy(commonService);
 		
-		//String string = ReflectionTestUtils.invokeMethod(commonService, "getMsg");
-		CommonService spy = PowerMockito.spy(commonService);
+		//Example of private method
+		PowerMockito.when(commonServiceSpy, "getMsg").thenReturn(mockedPrivateResponse);
 		
-		PowerMockito.doReturn("mock").when(spy, "getMsg");
-		
-		String str = spy.getServiceDetails();
-		
-		String  result = commonService.getServiceDetails();
-		
+		String result = commonServiceSpy.getServiceDetails();
 		assertNotNull(result);
-		
+		assertEquals(mockedPrivateResponse, result);
 	}
 	
+	@Test
+	public void testGetBaseDisplay() throws Exception {
+		String mockedPrivateResponse = "This is mocked base response";
+		CommonService commonServiceSpy = PowerMockito.spy(commonService);
+		
+		//Example of Inherited method
+		PowerMockito.when(commonServiceSpy, "display").thenReturn(mockedPrivateResponse);
+		
+		String result = commonServiceSpy.getBaseDisplay();
+		assertNotNull(result);
+		assertEquals(mockedPrivateResponse, result);
+	}
 
 }
