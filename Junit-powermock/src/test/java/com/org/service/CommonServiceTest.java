@@ -21,8 +21,24 @@ public class CommonServiceTest {
 	public void testGetServiceDetails() throws Exception {
 		String mockedPrivateResponse = "This is mocked response";
 		CommonService commonServiceSpy = PowerMockito.spy(commonService);
+		
+		//Example of private method
 		PowerMockito.when(commonServiceSpy, "getMsg").thenReturn(mockedPrivateResponse);
+		
 		String result = commonServiceSpy.getServiceDetails();
+		assertNotNull(result);
+		assertEquals(mockedPrivateResponse, result);
+	}
+	
+	@Test
+	public void testGetBaseDisplay() throws Exception {
+		String mockedPrivateResponse = "This is mocked base response";
+		CommonService commonServiceSpy = PowerMockito.spy(commonService);
+		
+		//Example of Inherited method
+		PowerMockito.when(commonServiceSpy, "display").thenReturn(mockedPrivateResponse);
+		
+		String result = commonServiceSpy.getBaseDisplay();
 		assertNotNull(result);
 		assertEquals(mockedPrivateResponse, result);
 	}
